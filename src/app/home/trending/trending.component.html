@@ -1,0 +1,31 @@
+<h5>You Entered : {{simpleText}}</h5>
+
+<span class="radioClass pr-2">Show :</span>
+<input type="radio" name="options" value="All" 
+[(ngModel)]="selectedRadioButtonValue" 
+(change)="onRadioButtonSelectionChange()"/>
+<span class="radioClass px-2">{{"All(" + all + ")"}}</span>
+<input type="radio" name="options" value="Male" 
+[(ngModel)]="selectedRadioButtonValue"
+(change)="onRadioButtonSelectionChange()"/>
+<span class="radioClass px-2">{{"Male(" + male +  ")"}}</span>
+<input type="radio" name="options" value="Female" 
+[(ngModel)]="selectedRadioButtonValue"
+(change)="onRadioButtonSelectionChange()"
+/>
+<span class="radioClass px-2">{{"Female(" + female + ")"}}</span>
+<!-- //////////////////////////////////////////////////////////////// -->
+<!-- <span class="radioClass pr-2">Show :</span>
+<input type="radio" name="options" value="All" 
+[(ngModel)]="selectedRadioButtonValue" 
+(change)="onRadioButtonSelectionChange()"/>
+<span class="radioClass px-2">All</span>
+<input type="radio" name="options" value="five" 
+[(ngModel)]="selectedRadioButtonValue"
+(change)="onRadioButtonSelectionChange()"/>
+<span class="radioClass px-2">{{"Movie(" + 5 +  ")Trending"}}</span>
+<input type="radio" name="options" value="ten" 
+[(ngModel)]="selectedRadioButtonValue"
+(change)="onRadioButtonSelectionChange()"
+/>
+<span class="radioClass px-2">{{"Movie(" + 10 + ")Trending"}}</span> -->

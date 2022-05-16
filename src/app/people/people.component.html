@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-4 d-flex align-items-center">
+          <div>
+            <div class="brdr w-25 mb-4"></div>
+            <h2 class="text-capitalize">
+              trending People <br />
+              to watch right now
+            </h2>
+            <p class="sec-color my-2">most wateced People by days</p>
+            <div class="brdr w-75 mt-4"></div>
+          </div>
+        </div>
+        <div *ngFor="let person of trendingPeople| paginate: { itemsPerPage: 10, currentPage: pageNumber }" class="col-md-2">
+          <div class="movie my-2 position-relative">
+            <img
+              [src]="imgPrefix + person.profile_path"
+              [alt]="person.name"
+              class="imaging"
+            />
+            <h3 class="my-2 h6">{{ person.name }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="custom-pagination text-center my-4">
+        <nav aria-label="Page navigation example">
+          <pagination-controls [responsive]="true" (pageChange)="paginationHandler($event)"></pagination-controls>
+        </nav>
+      </div>
+</div>

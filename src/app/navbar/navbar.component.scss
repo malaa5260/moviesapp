@@ -1,0 +1,22 @@
+.logs {
+  height:80px;
+  object-fit: cover;
+  max-width: 100%;
+} 
+a:hover {
+  color: #dd40ca !important;
+}
+.social-media{
+  i{
+    cursor:pointer;
+    font-size:20px;
+  }
+}
+.navbar-inverse{
+  background-color: #32363e;
+  // background-color: #fff;
+  // color: #000;
+  // a{
+  //   color: #000;
+  // }
+}

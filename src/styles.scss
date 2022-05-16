@@ -1,1 +1,98 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+$bgColor: #131722;
+$lightBgColor: hsl(196, 86%, 54%);
+$bgTransparent: rgba(36, 186, 239, 0.6);
+$fontColor: #fff;
+$borderColor: #a8a8a83d;
+$borderHeight: 1px;
+$secondFontColor: #949cb0;
+body {
+  font-family: 'Montserrat Alternates', sans-serif;
+  background-color: $bgColor;
+  color: $fontColor;
+}
+a {
+  font-size: 18px;
+  color: $fontColor;
+}
+.brdr{
+  background-color: $borderColor;
+  height:1px;
+  
+}
+.sec-color{
+  color:$secondFontColor;
+}
+.vote{
+  background-color: $lightBgColor;
+  padding:5px;
+  font-weight: 700;
+  position: absolute;
+  top: 0;
+  right:10px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+
+}
+/*start scoller */
+::-webkit-scrollbar {
+  width: .5em;
+}
+      
+::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px #adb5bd;
+}
+      
+::-webkit-scrollbar-thumb {
+background-color:$bgTransparent;
+}
+/*end scoller */
+a:hover{
+  text-decoration: none;
+  color: unset;
+}
+.imaging {
+  max-width: 100%;
+  object-fit: cover;
+}
+.footer{
+    background-color: #32363e;
+}
+/*Accordion start*/
+.btn:focus, .btn.focus {
+  box-shadow: unset!important; 
+ }
+ .btn-link:hover,.btn:focus {
+     text-decoration: none !important;
+ }
+ ngb-accordion .card{
+   margin-bottom: 2rem;
+ }
+ /*Accordion end*/
+ footer a:hover{
+ color: #dd40ca !important
+ }
+ .main-color{
+   background-color:$bgTransparent;
+   border-color: $bgTransparent;
+   transform: ease-in-out !important;
+   &:hover{
+     background-color:$lightBgColor;
+     border-color: $lightBgColor;
+   }
+ }
+ .table, th, td {
+  border: 1px solid #fff;
+  text-align: center;
+  }
+  p::selection,h2::selection,h5::selection{
+    background-color:#dd40ca ;
+    color: #fff;
+  }
+  .ngx-pagination a:hover, .ngx-pagination button:hover{
+    background: $lightBgColor !important;
+  }

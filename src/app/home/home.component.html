@@ -1,0 +1,173 @@
+<app-homeheader [moviesFromParent]="trendingMovies"></app-homeheader>
+
+<div class="container">
+  <div class="row py-5">
+    <div class="col-md-4 d-flex align-items-center">
+      <div>
+        <div class="brdr w-25 mb-4"></div>
+        <h2 class="text-capitalize">
+          trending movies <br />
+          to watch right now
+        </h2>
+        <!-- <app-trending
+          [all]="getTotalEmployeeCount()"
+          [male]="getTotalEmployeeCountMale()"
+          [female]="getTotalEmployeeCountFemale()"
+          (countRadioButtonSelectinChanged)="onEmployeeRadioButtonChanged($event)"
+          *ngIf="employees"
+          >
+        </app-trending>
+        <br />
+        <br /> -->
+        <!-- <table class="table table-striped text-white">
+          <thead>
+            <tr role="row">
+              <th scope="col">index</th>
+              <th scope="col">code</th>
+              <th scope="col">name</th>
+              <th scope="col">date</th>
+              <th scope="col">gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container
+            *ngFor="
+            let employee of employees;
+            trackBy: trackByEmpCode;
+            let i = index
+             ">
+              <tr
+              *ngIf="
+                selectedValueEmployee === 'All' ||
+                selectedValueEmployee === employee.gender
+              "
+              >
+                <td>{{ i }}</td>
+                <td>{{ employee.code }}</td>
+                <td>{{ employee.name | uppercase }}</td>
+                <td>{{ employee.dateOfBirth | date: "dd/MM/yyyy" }}</td>
+                <td>{{ employee.gender }}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table> -->
+        <!-- <button class="btn btn-primary main-color"(click)="getEmployees()">get more employee</button> -->
+        <p class="sec-color my-2">most wateced movies by days</p>
+        <div class="brdr w-75 mt-4 mb-5"></div>
+        <button class="btn btn-primary " routerLink="/movies"> Show More</button>
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="search"
+            aria-label="Search"
+            [(ngModel)]="searchTerm"
+          />
+          
+        </form> -->
+        <!-- <button
+          class="btn btn-primary main-color"
+          (click)="toggletrendingMovies()"
+        >
+          {{ showtrendingMovies ? "Hide" : "Show" }} Trending Movies
+        </button> -->
+
+        <!-- <input [(ngModel)]="name"   class="form-control mt-3" type="text"/>
+        <br/>
+         <h5>You Enter {{name}}</h5> -->
+      </div>
+    </div>
+    <app-no-result *ngIf="trendingMovies.length === 0"></app-no-result>
+    <ng-container *ngFor="let movie of trendingMoviesSections">
+      <div  class="col-md-2">
+        <div class="movie my-2 position-relative">
+          <!-- طالما movie.id جايه من بره يبقي لازم احط الروت ف بادينح -->
+          <a [routerLink]="['/moviedetails', movie.id]">
+            <img
+              [src]="imgPrefix + movie.poster_path"
+              [alt]="movie.title"
+              class="imaging"
+            />
+            <h5 class="mt-2 h6">{{ movie.title }}</h5>
+            <span class="" style="font-size: 12px">{{
+              movie.release_date
+            }}</span>
+            <div class="vote">
+              {{ movie.vote_average }}
+            </div>
+          </a>
+        </div>
+      </div>
+    </ng-container>
+    <div class="row py-5">
+      <div class="col-md-4 d-flex align-items-center">
+        <div>
+          <div class="brdr w-25 mb-4"></div>
+          <h2 class="text-capitalize">
+            trending TV <br />
+            to watch right now
+          </h2>
+          <p class="sec-color my-2">most wateced TV by days</p>
+          <div class="brdr w-75 mt-4 mb-3"></div>
+          <button class="btn btn-primary " routerLink="/tv"> Show More</button>
+          <!-- <button
+            class="btn btn-primary main-color"
+            (click)="toggletrendingTv()"
+          >
+            {{ showtrendingTv ? "Hide" : "Show" }} trending Tv
+          </button> -->
+        </div>
+      </div>
+      <app-no-result *ngIf="trendingTv.length === 0"></app-no-result>
+      <ng-container *ngIf="showtrendingTv">
+        <div *ngFor="let tv of trendingTv" class="col-md-2">
+          <div class="movie my-2 position-relative">
+            <img
+              [src]="imgPrefix + tv.poster_path"
+              [alt]="tv.name"
+              class="imaging"
+            />
+            <h3 class="my-2 h6">{{ tv.name }}</h3>
+            <div class="vote">
+              {{ tv.vote_average }}
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="row py-5">
+      <div class="col-md-4 d-flex align-items-center">
+        <div>
+          <div class="brdr w-25 mb-4"></div>
+          <h2 class="text-capitalize">
+            trending People <br />
+            to watch right now
+          </h2>
+          <p class="sec-color my-2">most wateced People by days</p>
+          <div class="brdr w-75 mt-4 mb-3"></div>
+          <button class="btn btn-primary " routerLink="/people"> Show More</button>
+          <!-- <button
+            class="btn btn-primary main-color"
+            (click)="toggletrendingPeople()"
+          >
+            {{ showtrendingPeople ? "Hide" : "Show" }} trending People
+          </button> -->
+        </div>
+      </div>
+      <app-no-result *ngIf="trendingPeople.length === 0"></app-no-result>
+      <ng-container *ngIf="showtrendingPeople" >
+        <div *ngFor="let person of trendingPeople" class="col-md-2">
+          <div class="movie my-2 position-relative">
+            <img
+              [src]="imgPrefix + person.profile_path"
+              [alt]="person.name"
+              class="imaging"
+            />
+            <h3 class="my-2 h6">{{ person.name }}</h3>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

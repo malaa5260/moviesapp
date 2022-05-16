@@ -1,0 +1,71 @@
+<div class="w-75 m-auto py-5">
+  <div *ngIf="error" class="alert alert-danger">
+    <p>{{ error }}</p>
+  </div>
+  <form [formGroup]="loginForm"
+  (ngSubmit)="submitLoginForm(loginForm)">
+    <div class="form-group mt-4">
+        <label for="age">Email :</label>
+        <input
+          formControlName="email"
+          class="form-control"
+          type="email"
+          id="email"
+          placeholder=""
+        />
+        <div
+          *ngIf="
+            loginForm.get('email')?.errors !== null &&
+            loginForm.get('email')?.touched
+          "
+          class="alert my-2 alert-danger"
+        >
+          <p *ngIf="loginForm.get('email')?.errors?.required">
+            Email is required
+          </p>
+          <p *ngIf="loginForm.get('email')?.errors?.email">Email is Invalid</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password :</label>
+        <input
+          formControlName="password"
+          class="form-control"
+          type="password"
+          id="password"
+          placeholder=""
+        />
+        <input
+          style="height: 30px; width: 30px; cursor: pointer"
+          class="mt-3"
+          type="checkbox"
+          id="eye"
+          onclick="if(password.type=='text')password.type='password'; else password.type='text';"
+        />
+        <label for="eye" class="pl-3">Show Password</label>
+        <div
+          *ngIf="
+            loginForm.get('password')?.errors !== null &&
+            loginForm.get('password')?.touched
+          "
+          class="alert my-2 alert-danger"
+        >
+          <p *ngIf="loginForm.get('password')?.errors?.required">
+            Password is required
+          </p>
+          <p *ngIf="loginForm.get('password')?.errors?.pattern">
+            Password is must start with upper case letters and length must be 3-9
+          </p>
+        </div>
+      </div>
+    <div class="text-center my-5">
+      <button
+        [disabled]="loginForm.invalid"
+        type="submit"
+        class="btn btn-info w-50 py-2"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>
